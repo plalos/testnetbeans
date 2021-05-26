@@ -1,3 +1,4 @@
+<div><h2>Check Availability</h2></div>
 <?php
 session_start();
 $servername = "localhost";
@@ -47,7 +48,7 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM reservations where seat_nr='$i-$j' AND r_date='$_GET[r_date]' AND r_time='$_GET[r_time]'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-    
+    //here is where the availability check is happening
     while($row = $result->fetch_assoc()) {
         echo "Seat ".$i. "-" .$j."<img src=red.png width=30>";    
     }     }
